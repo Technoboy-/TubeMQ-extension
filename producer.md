@@ -92,6 +92,7 @@
    - 获取所有包含指定topic的broker列表。key为broker id， value为分区列表。
    - 选择那些允许topic发布的broker，并返回列表。
    - 选择分区，默认实现为RoundRobinPartitionRouter，即轮询策略。
+   - 请注意，对于同步sendMessage，传入的clazz为BrokerWriteService，异步为BrokerWriteService.AsyncService。
    - TODO
     
 3. RoundRobinPartitionRouter说明
