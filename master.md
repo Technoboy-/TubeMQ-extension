@@ -33,3 +33,8 @@
  
  
  
+ 2. DefaultBdbStoreService
+   将broker，consumer，producer等元数据信息保存到BekerleyDB中的存储服务。
+   
+ 
+ 
