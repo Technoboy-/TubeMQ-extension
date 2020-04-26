@@ -83,6 +83,41 @@
       ```
 3. DefaultLoadBalancer
    
-          
-    
+4. HeartbeatManager
+   作为broker，consumer以及producer的心跳管理服务。master初始化后，会依次注册他们的心跳超时时间。
+   ```
+   heartbeatManager.regConsumerCheckBusiness(masterConfig.getConsumerHeartbeatTimeoutMs(),
+                   new TimeoutListener() {
+                       @Override
+                       public void onTimeout(String nodeId, TimeoutInfo nodeInfo) {
+                           logger.info(new StringBuilder(512).append("[Consumer Timeout] ")
+                                   .append(nodeId).toString());
+                           new ReleaseConsumer().run(nodeId);
+                       }
+   });
+   heartbeatManager.regProducerCheckBusiness(masterConfig.getProducerHeartbeatTimeoutMs(),
+                   new TimeoutListener() {
+                       @Override
+                       public void onTimeout(final String nodeId, TimeoutInfo nodeInfo) {
+                           logger.info(new StringBuilder(512).append("[Producer Timeout] ")
+                                   .append(nodeId).toString());
+                           new ReleaseProducer().run(nodeId);
+                       }
+   });
+   heartbeatManager.regBrokerCheckBusiness(masterConfig.getBrokerHeartbeatTimeoutMs(),
+                   new TimeoutListener() {
+                       @Override
+                       public void onTimeout(final String nodeId, TimeoutInfo nodeInfo) throws Exception {
+                           logger.info(new StringBuilder(512).append("[Broker Timeout] ")
+                                   .append(nodeId).toString());
+                           new ReleaseBroker().run(nodeId);
+                       }
+   });
+   ``` 
+   可以在master.ini中设置超时时间
+   producerHeartbeatTimeoutMs=30000       
+   consumerHeartbeatTimeoutMs=45000
+   brokerHeartbeatTimeoutMs=25000
+   producer/consumer在publish topic后定时发送心跳，master就不断延长各自的超时时间。
+   HeartbeatManager会开启timeoutScanService服务，间隔1s，周期性的清理超时服务，当node超时后，回调TimeoutListener。
  
