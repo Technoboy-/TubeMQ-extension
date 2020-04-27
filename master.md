@@ -120,4 +120,6 @@
    brokerHeartbeatTimeoutMs=25000
    producer/consumer在publish topic后定时发送心跳，master就不断延长各自的超时时间。
    HeartbeatManager会开启timeoutScanService服务，间隔1s，周期性的清理超时服务，当node超时后，回调TimeoutListener。
+   
+5. BrokerConfManager  
  
