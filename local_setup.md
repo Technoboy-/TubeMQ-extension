@@ -26,7 +26,7 @@
 
  #### Class
    1. 修改AddressUtils      
-      localIPAddress=127.0.0.1
+      localIPAddress=localhost
    
    2.    
    
