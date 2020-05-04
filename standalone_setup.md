@@ -50,9 +50,9 @@
       右键运行MasterStartup。
    
    6. 添加broker信息
-      <br>打开http://localhost:8080/config/broker_list.htm，点击'单个新增'
+      <br>打开"http://localhost:8080/config/broker_list.htm"，点击'单个新增'
       ![add_broker](standalone_setup_img/add_broker.jpg)   
-      然后点击'上线':
+      <br>然后点击'上线':
       ![broker_online](standalone_setup_img/broker_online.jpg)
       到这里，暂时就完成了broker启动前的准备工作。接着，进入设置broker阶段。
 
