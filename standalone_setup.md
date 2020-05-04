@@ -33,7 +33,7 @@
    5. 启动Master
       <br>Master和Broker的启动类，都在server模块的tools包内。找到MasterStartup, 通过以下两种方式设置启动配置文件:
       - 设置启动参数
-      ![master_start_up_args](standalone_setup_img/master_startup_args.png)
+      ![master_start_up_args](standalone_setup_img/master_startup_args.jpg)
       - 修改类文件
       ```
       public class MasterStartup {
