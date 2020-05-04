@@ -88,16 +88,23 @@
       右键运行BrokerStartup。
       
    3. 回到页面，这个时候，可以看到broker已经注册成功。当运行子状态变为'idle'后，可以向broker新建topic.
+      
       ![broker_registered](standalone_setup_img/broker_registered.jpg) 
      
    4. 添加topic
+   
       ![add_topic](standalone_setup_img/add_topic.jpg)   
+      
       添加完后，'可发布'，'可订阅'还是灰色，这时候，需要到broker列表页面，点击'重载'。
+      
       ![topic_is_grey](standalone_setup_img/topic_is_grey.jpg)  
+      
       ![broker_reload](standalone_setup_img/broker_reload.jpg)  
    
    5. 当broker的运行子状态变为idle后，表示topic已经可用。
+      
       ![broker_is_idle](standalone_setup_img/broker_is_idle.jpg)  
+      
       ![topic_is_ok](standalone_setup_img/topic_is_ok.jpg) 
      
 ### 启动Producer
