@@ -20,8 +20,8 @@
                            response.getBrokerTopicSetConfInfoList(), true, sBuilder);
        ```
      - 当注册失败且重试5次后，抛出StartupException，broker启动失败。  
-  
-
+     - 注册成功后，broker将周期性按照默认8s的间隔，向master发送心跳信息。
+        
  
  
  
