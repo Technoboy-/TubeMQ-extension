@@ -3,7 +3,7 @@
      <br>Broker的元数据管理类，包含了broker的配置信息，主题，以及一些策略定义。broker通过与master的心跳来不断更新元数据信息。
      - broker启动后，调用register2Master方法，
        ```
-        public synchronized void start() throws Exception {
+        public void start() throws Exception {
           logger.info("Starting tube server...");
           if (!this.shutdown.get()) {
               return;
